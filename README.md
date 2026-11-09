@@ -11,11 +11,11 @@
 
 [查看发行版与校验文件](https://github.com/qwer415102-hub/shizi-ocr/releases/latest)。安装包已内置运行环境和识别模型，首次使用也可断网识别；翻译需要联网。安卓端断网点击翻译时，会提示开启 Wi-Fi 或移动数据，并提供网络设置入口。
 
-Windows 版自动在默认浏览器打开界面，关闭「拾字」启动窗口即可退出。运行时在 EXE 旁边临时解包，正常退出后清理；放在 D 盘使用时，解包文件也在 D 盘。
+Windows 版自动在默认浏览器打开界面，关闭「拾字」启动窗口即可退出。运行时在 EXE 旁边临时解包，正常退出后清理；如放在 D 盘使用时，解包文件也在 D 盘，正常关闭程序后，解包文件自动清理。
 
 另已提供独立 **Android APK**：`dist/android/Shizi-1.0.0-android.apk`。手机直接安装，无需 Python、电脑或 Google Play 服务；支持首次断网识别、PDF 分页识别，以及翻译断网时提示开启网络。详见 [Android 使用与构建说明](android/README.md)。Android 构建工具、缓存和输出均在 D 盘当前项目内。
 
-**Windows 免安装版**已提供：只需 `dist/windows/Shizi.exe` 一个文件，双击后自动打开界面，运行环境和离线识别模型均已内置。放在 D 盘运行，临时解包也在 EXE 旁边，退出后清理。无需执行下面的 Python 安装步骤，详情见 [Windows 说明](WINDOWS.md)。
+**Windows 免安装版**已提供：只需 `dist/windows/Shizi.exe` 一个文件，双击后自动打开界面，运行环境和离线识别模型均已内置。如放在 D 盘运行，临时解包也在 EXE 旁边，退出后清理。无需执行下面的 Python 安装步骤，详情见 [Windows 说明](WINDOWS.md)。
 
 ## 启动
 
