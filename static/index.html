@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>拾字 — 图片与 PDF 文字工作台</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<header><a class="brand" href="/"><span class="logo">拾</span><strong>拾字<span class="brand-en">TEXT STUDIO</span></strong></a><span class="local"><i></i> 本地识别 · 无需登录</span></header>
+<main>
+  <div class="intro"><div><p class="eyebrow">FROM IMAGE TO IDEAS</p><h1>让图片里的文字，<span>流动起来。</span></h1><p class="subtitle">导入图片或 PDF，提取中英文，一键翻译成中文。</p></div><span class="intro-mark" aria-hidden="true">Aa<span>文</span></span></div>
+  <div class="workspace">
+    <aside class="panel import-panel">
+      <div class="section-label"><span>01</span><h2>导入文件</h2></div>
+      <input id="fileInput" type="file" accept=".png,.jpg,.jpeg,.webp,.bmp,.tif,.tiff,.pdf" hidden>
+      <button id="dropzone" class="dropzone" type="button"><span class="upload-icon">↥</span><strong>拖入文件，或点击上传</strong><span>截图、照片、扫描件都可以</span><small>PNG / JPG / WEBP / BMP / TIFF / PDF<br>单个文件最大 40 MB</small></button>
+      <div id="fileCard" class="file-card" hidden><span class="file-icon">▤</span><div><strong id="fileName"></strong><small id="fileSize"></small></div><button id="removeFile" class="icon-button" aria-label="移除文件">×</button></div>
+      <div class="options"><label for="mode">识别方式</label><select id="mode"><option value="auto">智能识别（推荐）</option><option value="ocr">全页 OCR（扫描 / 图文混合 PDF）</option></select><label for="pageRange">PDF 页码 <small>选填</small></label><input id="pageRange" placeholder="全部页面，或输入 1-5,8"><p class="hint">智能模式优先提取 PDF 原有文字。图文混合页如有遗漏，可切换全页 OCR。</p></div>
+      <button id="recognize" class="primary" disabled><span>✦</span> 开始识别</button>
+      <div id="progress" class="progress" hidden><span class="spinner"></span><span id="progressText">正在识别，请稍候…</span></div>
+      <div class="privacy"><span>◈</span><p>文件仅在本机处理，不保存上传记录。首次识别可能需要联网下载模型。</p></div>
+    </aside>
+    <section class="panel output-panel">
+      <div class="output-header"><div class="section-label"><span>02</span><h2>识别与翻译</h2></div><span id="resultBadge" class="badge">等待导入</span></div>
+      <div class="tabs"><button class="tab active" data-view="text">识别原文</button><button class="tab" data-view="translation">中文译文</button><button class="tab" data-view="preview">文件预览</button><span class="tab-tail" id="charCount">0 字符</span></div>
+      <div id="textView" class="view"><div class="editor-toolbar"><select id="pageSelect" aria-label="选择页面"><option>第 1 页</option></select><span id="methodLabel">支持中英文混合识别</span><button id="copyText" class="text-button">复制</button><button id="exportText" class="text-button">导出 TXT ↓</button></div><div class="editor-wrap"><textarea id="sourceText" placeholder="文字将在这里出现。&#10;&#10;识别完成后，你可以直接编辑、校对原文，再翻译成中文。" spellcheck="false" aria-label="识别原文"></textarea><div id="emptyArt" aria-hidden="true"><div class="paper">A<span></span><span></span><span></span></div><p>每一张图片，都有话想说</p></div></div><div id="confidenceNote" class="confidence-note" hidden></div></div>
+      <div id="translationView" class="view" hidden><div class="editor-toolbar"><label for="provider">翻译服务</label><select id="provider"><option value="mymemory">MyMemory</option><option value="google">Google 翻译（备用）</option></select><button id="copyTranslation" class="text-button">复制</button><button id="exportTranslation" class="text-button">导出 TXT ↓</button></div><textarea id="translatedText" placeholder="中文译文将在这里出现。&#10;&#10;在下方点击「翻译为中文」即可翻译当前页的英文。" aria-label="中文译文"></textarea></div>
+      <div id="previewView" class="view preview" hidden><p id="previewEmpty">导入文件后，在这里查看原图或 PDF。</p><img id="imagePreview" alt="上传图片预览" hidden><iframe id="pdfPreview" title="PDF 文件预览" hidden></iframe></div>
+      <div class="output-footer"><div><span class="translation-dot"></span><p id="translationHint">识别英文后，可翻译为中文</p><small>翻译需联网，当前页文字会发送给所选服务。</small></div><button id="translate" class="translate-button" disabled>文 ⇄ A <span>翻译为中文</span></button></div>
+    </section>
+  </div>
+  <div class="bottom-notes"><span>图片 → 文字 → 更多可能</span><span>支持扫描 PDF · 可编辑原文 · 分页翻译与导出</span></div>
+</main>
+<div id="toast" role="status" hidden></div><script src="/static/app.js"></script>
+</body></html>

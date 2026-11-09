@@ -1,0 +1,5 @@
+<resources>
+    <item name="source_text" type="id" />
+    <item name="translate_button" type="id" />
+    <item name="translated_text" type="id" />
+</resources>
